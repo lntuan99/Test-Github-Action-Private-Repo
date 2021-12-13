@@ -27,8 +27,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Restart service
-        run: |
-          ls
-          ./deploy.sh
+        run: ./deploy.sh
           
 
