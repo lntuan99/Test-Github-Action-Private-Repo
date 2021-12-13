@@ -30,9 +30,6 @@ jobs:
     name: Transition Issue
     runs-on: self-hosted
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
       - name: Login
         uses: atlassian/gajira-login@master
         env:
