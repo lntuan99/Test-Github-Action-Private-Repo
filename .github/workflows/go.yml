@@ -26,6 +26,30 @@ jobs:
     - name: Test
       run: go test -v
 
+  test-transition-issue:
+    name: Transition Issue
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+      - name: Find Issue Key
+        uses: ./
+        with:
+          from: commits
+
+      - name: Transition issue
+        uses: atlassian/gajira-transition@master
+        with:
+          issue: ${{ steps.create.outputs.issue }}
+          transition: "In Progress"
   deploy:
     needs: build
     runs-on: self-hosted
