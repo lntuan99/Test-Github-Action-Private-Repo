@@ -42,6 +42,7 @@ jobs:
         uses: atlassian/gajira-create@master
         with:
           project: TC
+          issuetype: Build
 
       - name: Transition issue
         uses: atlassian/gajira-transition@master
