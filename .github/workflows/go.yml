@@ -28,7 +28,7 @@ jobs:
 
   test-transition-issue:
     name: Transition Issue
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Login
         uses: atlassian/gajira-login@master
