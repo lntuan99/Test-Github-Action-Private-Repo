@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+var version = "dev"
+
 func main() {
-	fmt.Println("AAAAAAAAABCD")
+
+	fmt.Printf("Version: %s\n", version)
+
+	fmt.Println(hello())
+}
+
+func hello() string {
+	return "Hello Golang"
 }
