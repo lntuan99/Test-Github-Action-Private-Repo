@@ -26,7 +26,7 @@ jobs:
     - name: Test
       run: go test -v
 
-  test-transition-issue:
+  transition-issue:
     name: Transition Issue
     runs-on: self-hosted
     steps:
