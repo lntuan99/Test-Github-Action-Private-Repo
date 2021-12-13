@@ -43,6 +43,8 @@ jobs:
         with:
           project: TC
           issuetype: Bug
+          summary: |
+            Build completed for ${{ github.repository }}
 
       - name: Transition issue
         uses: atlassian/gajira-transition@master
