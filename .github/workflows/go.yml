@@ -47,7 +47,6 @@ jobs:
             Code bug vcl v cha
           description: |
             Compare branch
-          fields: '{"customfield_10171": "test"}'
 
       - name: Transition issue
         uses: atlassian/gajira-transition@master
