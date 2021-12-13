@@ -1,0 +1,17 @@
+Description=Test CICD github action
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1s
+WorkingDirectory=/root/go/src/cicd/Test-Github-Action-Private-Repo
+ExecStart=/root/go/src/cicd/Test-Github-Action-Private-Repo/main
+
+Environment=PORT=9696
+Environment=GIN_MODE=release
+Environment=ENV=production
+Environment=GOROOT=/usr/local/go
+Environment=GOPATH=/root/go
+
+[Install]
+WantedBy=multi-user.target

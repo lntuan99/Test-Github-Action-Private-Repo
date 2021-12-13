@@ -7,7 +7,6 @@ on:
     branches: [ master ]
 
 jobs:
-
   build:
     runs-on: self-hosted
     steps:
@@ -23,4 +22,10 @@ jobs:
       
     - name: Test
       run: go test -v
+
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Restart service
+        run: ./deploy.sh
 
