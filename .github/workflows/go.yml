@@ -40,11 +40,12 @@ jobs:
       - name: Create new issue
         id: create
         uses: atlassian/gajira-create@master
+        with:
+          project: TC
 
       - name: Transition issue
         uses: atlassian/gajira-transition@master
         with:
-          project: TC
           issue: ${{ steps.create.outputs.issue }}
           transition: "In progress"
 
