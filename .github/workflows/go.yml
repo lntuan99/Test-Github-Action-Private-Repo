@@ -44,13 +44,13 @@ jobs:
           project: TC
           issuetype: Bug
           summary: |
-            Build completed for ${{ github.repository }}
+            Code bug vcl v cha
 
       - name: Transition issue
         uses: atlassian/gajira-transition@master
         with:
           issue: ${{ steps.create.outputs.issue }}
-          transition: "In progress"
+          transition: "Bug"
 
   deploy:
     needs: build
