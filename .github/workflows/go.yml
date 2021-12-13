@@ -51,6 +51,9 @@ jobs:
         with:
           issue: ${{ steps.create.outputs.issue }}
           transition: "Bug"
+          description: |
+            Compare branch
+          fields: '{"customfield_10171": "test"}'
 
   deploy:
     needs: build
