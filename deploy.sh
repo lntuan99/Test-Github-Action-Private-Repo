@@ -8,4 +8,4 @@ systemctl enable test-cicd2.service
 # reload configurations incase if service file has changed
 systemctl daemon-reload
 # restart the service
-systemctl restart test-cicd
+systemctl restart test-cicd2
