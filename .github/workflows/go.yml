@@ -19,6 +19,16 @@ jobs:
     - name: Test
       run: go test -v
 
+    - name: Jira Integration
+      if: ${{ always() }}
+      uses: rohit-gohri/jira-ci-cd-integration@v0
+      with:
+        event_type: build
+        state: ${{ job.status }}
+        jira_instance: test-cicd # Subdomain for Jira Cloud
+        client_id: ${{ secrets.JIRA_CLIENT_ID }}
+        client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
+
   deploy:
     needs: build
     runs-on: self-hosted
@@ -31,3 +41,14 @@ jobs:
           systemctl daemon-reload
           # restart the service
           systemctl restart test-cicd
+
+      - name: Jira Integration
+        if: ${{ always() }}
+        uses: rohit-gohri/jira-ci-cd-integration@v0
+        with:
+          event_type: deployment
+          state: ${{ job.status }}
+          issue: TCJVG-1, TCJVG-1 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step
+          jira_instance: test-cicd # Subdomain for Jira Cloud
+          client_id: ${{ secrets.JIRA_CLIENT_ID }}
+          client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
