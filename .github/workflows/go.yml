@@ -46,7 +46,7 @@ jobs:
         with:
           state: ${{ job.status }}
           environment: staging
-          issue: JCI-3, JCI-6
+          issue: TC-6, TC-7
           jira_instance: test-cicd # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
