@@ -24,4 +24,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Restart service
-        run: ./deploy.sh
+        run: |
+          cp test-cicd.service /etc/systemd/system/test-cicd.service
+
+          # reload configurations incase if service file has changed
+          systemctl daemon-reload
+          # restart the service
+          systemctl restart test-cicd
