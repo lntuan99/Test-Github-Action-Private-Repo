@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Restart service
         run: |
-          cp test-cicd.service /etc/systemd/system/test-cicd.service
+          cp /root/go/src/cicd/Test-Github-Action-Private-Repo/test-cicd.service /etc/systemd/system/test-cicd.service
 
           # reload configurations incase if service file has changed
           systemctl daemon-reload
