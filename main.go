@@ -27,7 +27,7 @@ func main() {
 	r.Use(gin.Recovery())
 
 	r.GET("/status", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "CICD newbie. Fix TCJVG-1"})
+		c.JSON(http.StatusOK, gin.H{"data": "CICD newbie. Fix TCJVG-2 Nhé"})
 	})
 
 	PORT := os.Getenv("PORT")
