@@ -32,5 +32,3 @@ jobs:
     steps:
       - name: Restart service
         run: ./deploy.sh
-          
-
